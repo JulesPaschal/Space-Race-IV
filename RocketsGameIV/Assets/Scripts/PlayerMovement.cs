@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,8 +12,8 @@ public class PlayerMovement : MonoBehaviour
     
     void Update()
     {
-        float X = Input.GetAxis("Horizontal");
-        float Z = Input.GetAxis("Vertical");
+        float X = UnityEngine.Input.GetAxis("Horizontal");
+        float Z = UnityEngine.Input.GetAxis("Vertical");
 
         //this is supposed to allow movement local to the player object so that
         //turning will adjust the absolute direction that pressing W would take
