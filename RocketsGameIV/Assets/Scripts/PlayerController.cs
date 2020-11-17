@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private float movementX;
     private float movementY;
-    public float speed = 0;
+    public float speed = 1200;
     private int count;
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
@@ -40,15 +40,15 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 movement = new Vector3(-1.0f, movementY, movementX);
+        Vector3 movement = new Vector3(-3f, movementY, movementX);
         rb.AddForce(movement * speed);
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Booster"))
-        {
-            speed = speed + 10;
-        }
-    }
+    // void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.CompareTag("Booster"))
+    //     {
+    //         speed = speed + 10;
+    //     }
+    // }
 }
