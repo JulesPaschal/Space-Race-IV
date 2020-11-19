@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+
 using UnityEngine.InputSystem;
 using TMPro;
 
@@ -20,6 +23,7 @@ public class PlayerController : MonoBehaviour
         count = 0;
         SetCountText();
         winTextObject.SetActive(false);
+
     }
 
     void OnMove(InputValue movementValue)
@@ -27,6 +31,7 @@ public class PlayerController : MonoBehaviour
         Vector2 movementVector = movementValue.Get<Vector2>();
         movementX = movementVector.x;
         movementY = movementVector.y;
+
     }
 
     void SetCountText()
@@ -42,9 +47,8 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 movement = new Vector3(-3f, movementY, movementX);
         rb.AddForce(movement * speed);
-    }
-
-    // void OnTriggerEnter(Collider other)
+	}   
+// void OnTriggerEnter(Collider other)
     // {
     //     if (other.CompareTag("Booster"))
     //     {
