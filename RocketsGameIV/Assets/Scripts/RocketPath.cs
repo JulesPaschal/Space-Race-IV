@@ -58,7 +58,7 @@ public class RocketPath : MonoBehaviour {
         else if (nextLoc == Waypoint4){ currentLoc = Waypoint4; nextLoc = Waypoint5; }
         else if (nextLoc == Waypoint5){ currentLoc = Waypoint5; nextLoc = Waypoint6; }
         else if (nextLoc == Waypoint6){ currentLoc = Waypoint6; nextLoc = Waypoint7; }
-        else if (nextLoc == Waypoint7){ currentLoc = Waypoint7; nextLoc = StartingLine; }
+        else if (nextLoc == Waypoint7){ currentLoc = Waypoint7;}
         else if (currentLoc == StartingLine){ nextLoc = Waypoint1; }
 
         //transform.LookAt (nextLoc);
