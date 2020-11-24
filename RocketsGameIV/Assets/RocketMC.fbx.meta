@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: aad5d5c80f782473c90207150e2c0814
+guid: b87240c0e1ad9446a9ff1dd190f6f26c
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: rocketPaint
+    second: {fileID: 2800000, guid: 024531629bd66441e821cd0e40c78d8c, type: 3}
   materials:
     materialImportMode: 1
     materialName: 0
