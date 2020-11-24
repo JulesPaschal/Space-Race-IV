@@ -14,6 +14,13 @@ public class RocketPath : MonoBehaviour {
     public Transform Waypoint5;
     public Transform Waypoint6;
     public Transform Waypoint7;
+    public Transform Waypoint8;
+    public Transform Waypoint9;
+    public Transform Waypoint10;
+    public Transform Waypoint11;
+    public Transform Waypoint12;
+    public Transform Waypoint13;
+    public Transform Finishline;
 
     private Transform currentLoc;
     private Transform nextLoc;
@@ -23,10 +30,13 @@ public class RocketPath : MonoBehaviour {
     public Vector3 offset;
     public Rigidbody rb;
 
+   
+
     void Start(){
        // rb = GetComponent ();
         currentLoc = StartingLine;
         transform.position = currentLoc.position;
+        nextLoc = Waypoint1;
         moveShip();
     }
 
@@ -58,9 +68,14 @@ public class RocketPath : MonoBehaviour {
         else if (nextLoc == Waypoint4){ currentLoc = Waypoint4; nextLoc = Waypoint5; }
         else if (nextLoc == Waypoint5){ currentLoc = Waypoint5; nextLoc = Waypoint6; }
         else if (nextLoc == Waypoint6){ currentLoc = Waypoint6; nextLoc = Waypoint7; }
-        else if (nextLoc == Waypoint7){ currentLoc = Waypoint7;}
-        else if (currentLoc == StartingLine){ nextLoc = Waypoint1; }
-
+        else if (nextLoc == Waypoint7){ currentLoc = Waypoint7; nextLoc = Waypoint8; }
+        else if (nextLoc == Waypoint8){ currentLoc = Waypoint8; nextLoc = Waypoint9; }
+        else if (nextLoc == Waypoint9){ currentLoc = Waypoint9; nextLoc = Waypoint10; }
+        else if (nextLoc == Waypoint10){ currentLoc = Waypoint10; nextLoc = Waypoint11; }
+        else if (nextLoc == Waypoint11){ currentLoc = Waypoint11; nextLoc = Waypoint12; }
+        else if (nextLoc == Waypoint12){ currentLoc = Waypoint12; nextLoc = Waypoint13; }
+        else if (nextLoc == Waypoint13){ currentLoc = Waypoint13; nextLoc = Finishline; }
+        else if (nextLoc == Finishline){ currentLoc = Finishline; }
         //transform.LookAt (nextLoc);
         Debug.Log("leaving: " + currentLoc + "\n heading towards:" + nextLoc);
     }

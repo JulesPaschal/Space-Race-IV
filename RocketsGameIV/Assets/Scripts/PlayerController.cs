@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 using UnityEngine.InputSystem;
@@ -15,8 +16,6 @@ public class PlayerController : MonoBehaviour
     public float startSpeed = 75;
     public float speed;
     private int count;
-    public TextMeshProUGUI countText;
-    public GameObject winTextObject;
 
     public bool isDash = false;
 	public float coolDownTime = .5f;
@@ -27,13 +26,15 @@ public class PlayerController : MonoBehaviour
 	private int dashNumber = 0;
 
 	private bool Finished = false;
+
+	public TextMeshProUGUI PlaceText;
+    public GameObject Opponent;
+
     void Start()
+
     {
         rb = GetComponent<Rigidbody>();
         count = 0;
-        SetCountText();
-        winTextObject.SetActive(false);
-
     }
 
     void OnMove(InputValue movementValue)
@@ -42,15 +43,6 @@ public class PlayerController : MonoBehaviour
         movementX = movementVector.x;
         movementY = movementVector.y;
 
-    }
-
-    void SetCountText()
-    {
-        countText.text = "Count: " + count.ToString();
-        if (count >= 12)
-        {
-            winTextObject.SetActive(true);
-        }
     }
 
     void FixedUpdate()
@@ -68,10 +60,26 @@ public class PlayerController : MonoBehaviour
  			StartCoroutine(DashDuration());
  		}	
 
+ 		Vector3 PositionNPC = GameObject.Find("RatBastard").transform.position;
+ 		Vector3 PositionPlayer = GameObject.Find("rocket").transform.position;
+ 		if (PositionNPC.x >= PositionPlayer.x){
+ 			PlaceText.text = "1st";
+ 		}
+ 		else {
+ 			PlaceText.text = "2nd";
+ 		}
+
  		if (Finished == false){
         	Vector3 movement = new Vector3(-3f, 
         				movementY * 2.5f, movementX * 2.5f);
         	rb.AddForce(movement * speed);
+    	}
+
+    	else if (Finished == true && PlaceText.text == "1st"){
+    		PlaceText.text = "You win!";
+    	}
+    	else {
+    		PlaceText.text = "You lose!";
     	}
 
 	}   
