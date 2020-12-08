@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Booster
   - Finish Line
+  - Obstacle
   layers:
   - Default
   - TransparentFX

@@ -47,6 +47,11 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+    	Quaternion RotationPlayer = GameObject.Find("rocket").transform.rotation;
+    	RotationPlayer.x = 0;
+    	RotationPlayer.y = 0;
+    	RotationPlayer.z = 0;
+    	
     	if (isDash == true){
 			speed = startSpeed + 20 * dashNumber;
 			boosted = true;
@@ -90,6 +95,12 @@ public class PlayerController : MonoBehaviour
 	        {
 	           isDash = true;
 	           dashNumber++;
+	        }
+	        else if (other.CompareTag("Obstacle"))
+	        {
+	            speed = speed - 10;
+	            
+    			Debug.Log("CORNCH");
 	        }
 	        else if (other.CompareTag("Finish Line")){
 	        	Finished = true;

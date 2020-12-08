@@ -29,6 +29,7 @@ public class RocketPath : MonoBehaviour {
     public float rotationSpeed = 5f;
     public Vector3 offset;
     public Rigidbody rb;
+    private float coolDownTime = 100000f;
 
    
 
@@ -56,6 +57,7 @@ public class RocketPath : MonoBehaviour {
         if (other.gameObject.layer == 9){
             Debug.Log("Hit a waypoint!");
             moveShip();
+            StartCoroutine(PauseDuration());
         }
     }
 
@@ -79,6 +81,10 @@ public class RocketPath : MonoBehaviour {
         //transform.LookAt (nextLoc);
         Debug.Log("leaving: " + currentLoc + "\n heading towards:" + nextLoc);
     }
+
+    IEnumerator PauseDuration(){
+		yield return new WaitForSeconds(coolDownTime);
+	}
 }
 
 //research: https://youtu.be/RkrC0PopskM
