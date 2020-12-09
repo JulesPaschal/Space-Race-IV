@@ -10,6 +10,7 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
+
     private Rigidbody rb;
     private float movementX;
     private float movementY;
@@ -47,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-    	Quaternion RotationPlayer = GameObject.Find("rocket").transform.rotation;
+    	Quaternion RotationPlayer = this.transform.rotation;
     	RotationPlayer.x = 0;
     	RotationPlayer.y = 0;
     	RotationPlayer.z = 0;
@@ -65,8 +66,8 @@ public class PlayerController : MonoBehaviour
  			StartCoroutine(DashDuration());
  		}	
 
- 		Vector3 PositionNPC = GameObject.Find("RatBastard").transform.position;
- 		Vector3 PositionPlayer = GameObject.Find("rocket").transform.position;
+		Vector3 PositionNPC = Opponent.transform.position;
+ 		Vector3 PositionPlayer = this.transform.position;
  		if (PositionNPC.x >= PositionPlayer.x){
  			PlaceText.text = "1st";
  		}
