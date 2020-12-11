@@ -29,7 +29,8 @@ public class PlayerController : MonoBehaviour
 	private bool Finished = false;
 
 	public TextMeshProUGUI PlaceText;
-    public GameObject Opponent;
+    public GameObject Opponent1;
+    public GameObject Opponent2;
 
     void Start()
 
@@ -66,15 +67,23 @@ public class PlayerController : MonoBehaviour
  			StartCoroutine(DashDuration());
  		}	
 
-		Vector3 PositionNPC = Opponent.transform.position;
+		Vector3 PositionNPC = Opponent1.transform.position;
+		Vector3 PositionNPC2 = Opponent2.transform.position;
  		Vector3 PositionPlayer = this.transform.position;
- 		if (PositionNPC.x >= PositionPlayer.x){
+ 		if (PositionNPC.x >= PositionPlayer.x && PositionNPC2.x >= PositionPlayer.x){
  			PlaceText.text = "1st";
  		}
- 		else {
+ 		else if ((PositionNPC.x <= PositionPlayer.x && PositionNPC2.x >= PositionPlayer.x)) {
  			PlaceText.text = "2nd";
  		}
+ 		else if ((PositionNPC.x >= PositionPlayer.x && PositionNPC2.x <= PositionPlayer.x)) {
+ 			PlaceText.text = "2nd";
+ 		}
+ 		else {
+ 			PlaceText.text = "3rd";
+ 		}
 
+ 		
  		if (Finished == false){
         	Vector3 movement = new Vector3(-3f, 
         				movementY * 2.5f, movementX * 2.5f);
