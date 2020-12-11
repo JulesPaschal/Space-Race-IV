@@ -25,8 +25,9 @@ public class PlayerController : MonoBehaviour
 	private bool boosted;
 
 	private int dashNumber = 0;
-
 	private bool Finished = false;
+	private bool newLapVar = false;
+	private int lapNum = 1;
 
 	public TextMeshProUGUI PlaceText;
     public GameObject Opponent1;
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour
 
     void OnMove(InputValue movementValue)
     {
+    	
         Vector2 movementVector = movementValue.Get<Vector2>();
         movementX = movementVector.x;
         movementY = movementVector.y;
@@ -49,6 +51,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+    	Vector3 PositionPlayer = this.transform.position;
+
     	Quaternion RotationPlayer = this.transform.rotation;
     	RotationPlayer.x = 0;
     	RotationPlayer.y = 0;
@@ -69,7 +73,7 @@ public class PlayerController : MonoBehaviour
 
 		Vector3 PositionNPC = Opponent1.transform.position;
 		Vector3 PositionNPC2 = Opponent2.transform.position;
- 		Vector3 PositionPlayer = this.transform.position;
+ 		
  		if (PositionNPC.x >= PositionPlayer.x && PositionNPC2.x >= PositionPlayer.x){
  			PlaceText.text = "1st";
  		}
@@ -113,11 +117,28 @@ public class PlayerController : MonoBehaviour
     			Debug.Log("CORNCH");
 	        }
 	        else if (other.CompareTag("Finish Line")){
-	        	Finished = true;
+	        	if (lapNum == 3){
+	        		Finished = true;
+	        	}
+	        	else {
+	        		newLapVar = true;
+	        		newLap();
+	        		Debug.Log("newLap, according to on trigger enter");
+	        		lapNum++;
+	        	}
 	        }
 	    }
 
+	void newLap(){
+		//Vector3 PositionPlayer = this.transform.position;
+		Vector3 restartLoc = new Vector3 (0, 0, 0);
+    	if (newLapVar == true){
+    		this.transform.position = restartLoc;
+    		newLapVar = false;
+    		Debug.Log("newLap, according to new lap");
+    	}
 
+	}
 	IEnumerator DashDuration(){
 		yield return new WaitForSeconds(coolDownTime);
 		isDash = false;

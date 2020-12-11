@@ -3493,6 +3493,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RatBastardSr
       objectReference: {fileID: 0}
+    - target: {fileID: 291967618115190346, guid: bdad38fc8d61614459f8a1bed97fdab6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 291967618115190347, guid: bdad38fc8d61614459f8a1bed97fdab6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3652,6 +3657,16 @@ PrefabInstance:
       propertyPath: coolDownTime
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3508749426266524368, guid: 94808f02a4f428d4a82a80c37fd11da8,
+        type: 3}
+      propertyPath: Opponent1
+      value: 
+      objectReference: {fileID: 661314562}
+    - target: {fileID: 3508749426266524368, guid: 94808f02a4f428d4a82a80c37fd11da8,
+        type: 3}
+      propertyPath: Opponent2
+      value: 
+      objectReference: {fileID: 661314562}
     - target: {fileID: 3508749426266524370, guid: 94808f02a4f428d4a82a80c37fd11da8,
         type: 3}
       propertyPath: m_Name

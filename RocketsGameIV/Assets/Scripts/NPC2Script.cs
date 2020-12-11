@@ -34,6 +34,7 @@ public class NPC2Script : MonoBehaviour
 
     private int currInd = 0;
  
+    private int lap = 1;
 
     void Start(){
        // rb = GetComponent ();
@@ -70,7 +71,17 @@ public class NPC2Script : MonoBehaviour
         //Transform ShipYard = transform.position;
 
         if(nextLoc == Finishline){
+            Debug.Log("acknowledges that next location is Finishline");
             currentLoc = Finishline;
+            if(lap == 1 || lap == 2){
+                Debug.Log("acknowledges that we gotta go back");
+                nextLoc = StartingLine;
+                lap++;
+            }
+        }
+        else if (nextLoc == StartingLine){
+            currentLoc = StartingLine;
+            nextLoc = wayArray[1];
         }
         else {
             currentLoc = wayArray[currInd + 1];
