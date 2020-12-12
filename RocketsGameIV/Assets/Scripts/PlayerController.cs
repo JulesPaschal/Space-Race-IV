@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
 	private int lapNum = 1;
 
 	public TextMeshProUGUI PlaceText;
+	public TextMeshProUGUI LapText;
     public GameObject Opponent1;
     public GameObject Opponent2;
 
@@ -71,20 +72,22 @@ public class PlayerController : MonoBehaviour
  			StartCoroutine(DashDuration());
  		}	
 
+ 		LapText.text = "Lap " + lapNum + "/3";
+
 		Vector3 PositionNPC = Opponent1.transform.position;
 		Vector3 PositionNPC2 = Opponent2.transform.position;
  		
  		if (PositionNPC.x >= PositionPlayer.x && PositionNPC2.x >= PositionPlayer.x){
- 			PlaceText.text = "1st";
+ 			PlaceText.text = "1st Place";
  		}
  		else if ((PositionNPC.x <= PositionPlayer.x && PositionNPC2.x >= PositionPlayer.x)) {
- 			PlaceText.text = "2nd";
+ 			PlaceText.text = "2nd Place";
  		}
  		else if ((PositionNPC.x >= PositionPlayer.x && PositionNPC2.x <= PositionPlayer.x)) {
- 			PlaceText.text = "2nd";
+ 			PlaceText.text = "2nd Place";
  		}
  		else {
- 			PlaceText.text = "3rd";
+ 			PlaceText.text = "3rd Place";
  		}
 
  		
@@ -123,7 +126,6 @@ public class PlayerController : MonoBehaviour
 	        	else {
 	        		newLapVar = true;
 	        		newLap();
-	        		Debug.Log("newLap, according to on trigger enter");
 	        		lapNum++;
 	        	}
 	        }
@@ -135,7 +137,6 @@ public class PlayerController : MonoBehaviour
     	if (newLapVar == true){
     		this.transform.position = restartLoc;
     		newLapVar = false;
-    		Debug.Log("newLap, according to new lap");
     	}
 
 	}
