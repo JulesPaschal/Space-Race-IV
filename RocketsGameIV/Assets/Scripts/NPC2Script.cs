@@ -20,8 +20,7 @@ public class NPC2Script : MonoBehaviour
     public Transform Waypoint12;
     public Transform Waypoint13;
     public Transform Finishline;
-
-    
+  
     private Transform currentLoc;
     private Transform nextLoc;
     private Transform[] wayArray;
@@ -44,12 +43,10 @@ public class NPC2Script : MonoBehaviour
         currentLoc = StartingLine;
         transform.position = currentLoc.position;
         nextLoc = Waypoint1;
-        Debug.Log("Does it call moveShip from start?");
         moveShip();
     }
 
     void Update(){
-        Debug.Log("current index: " + currInd);
     //LERP rotation
        Vector3 relativePos = nextLoc.position - transform.position;
        Quaternion toRotation = Quaternion.LookRotation(relativePos);
@@ -73,18 +70,16 @@ public class NPC2Script : MonoBehaviour
         //Transform ShipYard = transform.position;
 
         if(nextLoc == Finishline){
-            Debug.Log("acknowledges that next location is Finishline");
             currentLoc = Finishline;
             if(lap == 1 || lap == 2){
-                Debug.Log("acknowledges that we gotta go back");
                 nextLoc = StartingLine;
                 lap++;
             }
         }
         else if (nextLoc == StartingLine){
-            Debug.Log("knows its next location is the strting line");
             currentLoc = StartingLine;
             nextLoc = wayArray[1];
+            currInd = 0;
         }
         else {
             currentLoc = wayArray[currInd + 1];
