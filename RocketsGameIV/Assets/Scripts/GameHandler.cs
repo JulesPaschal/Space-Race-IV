@@ -46,6 +46,11 @@ public class GameHandler : MonoBehaviour
 
 	}
 
+	public void OptionsMenu()
+	{
+		SceneManager.LoadScene("Options");
+	}
+
 	public void Credits(){
 		SceneManager.LoadScene("CRedits");
 	}
