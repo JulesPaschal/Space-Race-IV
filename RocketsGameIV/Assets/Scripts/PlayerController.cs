@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 	private bool boosted;
 
 	private int dashNumber = 0;
-	private bool Finished = false;
+	bool Finished = false;
 	private bool newLapVar = false;
 	private int lapNum = 1;
 
