@@ -115,6 +115,12 @@ public class PlayerController : MonoBehaviour
 	        }
 	        else if (other.CompareTag("Obstacle"))
 	        {
+	            speed = speed - 5;
+	            
+    			Debug.Log("CORNCH");
+	        }
+	        else if (other.CompareTag("BigObstacle"))
+	        {
 	            speed = speed - 10;
 	            
     			Debug.Log("CORNCH");
