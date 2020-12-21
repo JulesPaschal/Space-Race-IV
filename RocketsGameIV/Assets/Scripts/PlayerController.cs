@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
 	private int dashNumber = 0;
 	private bool Finished = false;
 	private bool newLapVar = false;
-	private int lapNum = 1;
+	public int lapNum = 1;
 
 	public TextMeshProUGUI PlaceText;
 	public TextMeshProUGUI LapText;
