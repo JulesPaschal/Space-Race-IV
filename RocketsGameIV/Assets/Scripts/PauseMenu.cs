@@ -2,11 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject PauseMenuUI;
+
+	public AudioMixer mixer;
+	public static float volumeLevel = 1.0f;
+	private Slider sliderVolumeCtrl;
+
+	void Awake (){
+		SetLevel (volumeLevel);
+		GameObject sliderTemp = GameObject.FindWithTag("PauseMenuSlider");
+		if (sliderTemp != null){
+			sliderVolumeCtrl = sliderTemp.GetComponent<Slider>();
+			sliderVolumeCtrl.value = volumeLevel;
+		}
+	}
+
 
     void Start()
     {
@@ -55,4 +71,10 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Quitting Game...");
 
     }
+
+	public void SetLevel (float sliderValue){
+		mixer.SetFloat("MusicVolume", Mathf.Log10 (sliderValue) * 20);
+		volumeLevel = sliderValue;
+	} 
+
 }

@@ -33,7 +33,7 @@ public class NPC2Script : MonoBehaviour
 
     private int currInd = 0;
  
-    private int lap = 1;
+    public int lap = 1;
 
     void Start(){
        // rb = GetComponent ();
@@ -74,9 +74,11 @@ public class NPC2Script : MonoBehaviour
             if(lap == 1 || lap == 2){
                 nextLoc = StartingLine;
                 lap++;
+				Debug.Log("NPC just finished lap #" + lap);
             }
         }
         else if (nextLoc == StartingLine){
+			gameObject.transform.position = new Vector3(StartingLine.position.x, StartingLine.position.y, StartingLine.position.z);
             currentLoc = StartingLine;
             nextLoc = wayArray[1];
             currInd = 0;

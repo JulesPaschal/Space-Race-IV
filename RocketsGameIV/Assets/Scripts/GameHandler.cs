@@ -29,11 +29,11 @@ public class GameHandler : MonoBehaviour
 	}
 
 	public void Start2(){
-		SceneManager.LoadScene("Level1");
+		SceneManager.LoadScene("Level2");
 	}
 
 	public void Start3(){
-		SceneManager.LoadScene("Level1");
+		SceneManager.LoadScene("Level3");
 	}
 
 
@@ -52,7 +52,7 @@ public class GameHandler : MonoBehaviour
 	}
 
 	public void Credits(){
-		SceneManager.LoadScene("CRedits");
+		SceneManager.LoadScene("Credits");
 	}
 
 	public void Quit(){

@@ -31,14 +31,24 @@ public class PlayerController : MonoBehaviour
 
 	public TextMeshProUGUI PlaceText;
 	public TextMeshProUGUI LapText;
+	public GameObject WinMenu;
+	public GameObject LoseMenu;
     public GameObject Opponent1;
     public GameObject Opponent2;
 
-    void Start()
+	public int Opponent1Lap;
+	public AudioSource boostSound;
 
-    {
+
+
+
+    void Start(){
+		boostSound = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
         count = 0;
+
+		WinMenu.SetActive(false);
+		LoseMenu.SetActive(false);
     }
 
     void OnMove(InputValue movementValue)
@@ -52,6 +62,9 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+		Opponent1Lap = Opponent1.GetComponent<NPC2Script>().lap;
+		//Debug.Log("THE OPPONENT IS ON LAP #" + Opponent1Lap);
+
     	Vector3 PositionPlayer = this.transform.position;
 
     	Quaternion RotationPlayer = this.transform.rotation;
@@ -98,9 +111,11 @@ public class PlayerController : MonoBehaviour
     	}
 
     	else if (Finished == true && PlaceText.text == "1st"){
+			WinMenu.SetActive(true);
     		PlaceText.text = "You win!";
     	}
     	else {
+			LoseMenu.SetActive(true);
     		PlaceText.text = "You lose!";
     	}
 
@@ -110,6 +125,7 @@ public class PlayerController : MonoBehaviour
 	    {
 	        if (other.CompareTag("Booster"))
 	        {
+			   boostSound.Play(0);
 	           isDash = true;
 	           dashNumber++;
 	        }
@@ -122,6 +138,7 @@ public class PlayerController : MonoBehaviour
 	        else if (other.CompareTag("Finish Line")){
 	        	if (lapNum == 3){
 	        		Finished = true;
+
 	        	}
 	        	else {
 	        		newLapVar = true;
