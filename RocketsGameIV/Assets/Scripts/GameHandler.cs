@@ -55,6 +55,21 @@ public class GameHandler : MonoBehaviour
 		SceneManager.LoadScene("Credits");
 	}
 
+	public void Lore()
+	{
+		SceneManager.LoadScene("LoreNew");
+	}
+
+	//public void empty01()
+	//{
+	//	SceneManager.LoadScene("null");
+	//}
+
+	//public void empty02()
+	//{
+	//	SceneManager.LoadScene("null");
+	//}
+
 	public void Quit(){
 		Application.Quit();
 	}

@@ -130,13 +130,14 @@ public class LoreTransition : MonoBehaviour
         {
             lore_13.SetActive(false);
             lore_14.SetActive(true);
+            Lore_Complete = true;
         }
 
     }
 
     void Skip()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("MainMenu");
     }
  
 }
