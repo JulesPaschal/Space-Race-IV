@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 9ec68c3ae3c424b458ac04ef41c587c8
+=======
+guid: ea712e9f740b34e96a27d86a9cae0359
+>>>>>>> Sam's-Branch
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

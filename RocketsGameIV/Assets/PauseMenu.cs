@@ -1,29 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-<<<<<<< HEAD
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using UnityEngine.Audio;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject PauseMenuUI;
-
-	public AudioMixer mixer;
-	public static float volumeLevel = 1.0f;
-	private Slider sliderVolumeCtrl;
-
-	void Awake (){
-		SetLevel (volumeLevel);
-		GameObject sliderTemp = GameObject.FindWithTag("PauseMenuSlider");
-		if (sliderTemp != null){
-			sliderVolumeCtrl = sliderTemp.GetComponent<Slider>();
-			sliderVolumeCtrl.value = volumeLevel;
-		}
-	}
-
 
     void Start()
     {
@@ -52,7 +35,7 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = true;
     }
 
-    public void Resume()
+    public void Resume( )
     {
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
@@ -66,32 +49,10 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void QuitGame()
+       public void QuitGame()
     {
         Application.Quit();
         Debug.Log("Quitting Game...");
 
     }
-
-	public void SetLevel (float sliderValue){
-		mixer.SetFloat("MusicVolume", Mathf.Log10 (sliderValue) * 20);
-		volumeLevel = sliderValue;
-	} 
-
-=======
-
-public class NewBehaviourScript : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
->>>>>>> Sam's-Branch
 }
