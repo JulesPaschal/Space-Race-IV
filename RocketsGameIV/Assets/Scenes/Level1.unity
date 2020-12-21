@@ -12581,6 +12581,11 @@ PrefabInstance:
       propertyPath: WinMenu
       value: 
       objectReference: {fileID: 1038652852}
+    - target: {fileID: 3508749426266524368, guid: 94808f02a4f428d4a82a80c37fd11da8,
+        type: 3}
+      propertyPath: CourseSize
+      value: 5000
+      objectReference: {fileID: 0}
     - target: {fileID: 3508749426266524370, guid: 94808f02a4f428d4a82a80c37fd11da8,
         type: 3}
       propertyPath: m_Name

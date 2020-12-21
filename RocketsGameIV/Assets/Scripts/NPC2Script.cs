@@ -73,8 +73,7 @@ public class NPC2Script : MonoBehaviour
             currentLoc = Finishline;
             if(lap == 1 || lap == 2){
                 nextLoc = StartingLine;
-                lap++;
-				Debug.Log("NPC just finished lap #" + lap);
+
             }
         }
         else if (nextLoc == StartingLine){
@@ -82,6 +81,8 @@ public class NPC2Script : MonoBehaviour
             currentLoc = StartingLine;
             nextLoc = wayArray[1];
             currInd = 0;
+            lap++;
+            Debug.Log("NPC just finished lap #" + lap);
         }
         else {
             currentLoc = wayArray[currInd + 1];

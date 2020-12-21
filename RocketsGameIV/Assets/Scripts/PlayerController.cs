@@ -36,8 +36,13 @@ public class PlayerController : MonoBehaviour
     public GameObject Opponent1;
     public GameObject Opponent2;
 
-	public int Opponent1Lap;
+    public int CourseSize;
+	private int Opponent1Lap;
+	private int Opponent2Lap;
 	public AudioSource boostSound;
+
+	private bool doneForReal = false;
+	private int Place = 0;
 
 
 
@@ -64,6 +69,7 @@ public class PlayerController : MonoBehaviour
     {
 		Opponent1Lap = Opponent1.GetComponent<NPC2Script>().lap;
 		//Debug.Log("THE OPPONENT IS ON LAP #" + Opponent1Lap);
+		//Opponent2Lap = Opponent2.GetComponent<NPC2Script>().lap;
 
     	Vector3 PositionPlayer = this.transform.position;
 
@@ -87,32 +93,45 @@ public class PlayerController : MonoBehaviour
 
  		LapText.text = "Lap " + lapNum + "/3";
 
-		Vector3 PositionNPC = Opponent1.transform.position;
-		Vector3 PositionNPC2 = Opponent2.transform.position;
- 		
- 		if (PositionNPC.x >= PositionPlayer.x && PositionNPC2.x >= PositionPlayer.x){
- 			PlaceText.text = "1st Place";
- 		}
- 		else if ((PositionNPC.x <= PositionPlayer.x && PositionNPC2.x >= PositionPlayer.x)) {
- 			PlaceText.text = "2nd Place";
- 		}
- 		else if ((PositionNPC.x >= PositionPlayer.x && PositionNPC2.x <= PositionPlayer.x)) {
- 			PlaceText.text = "2nd Place";
- 		}
- 		else {
- 			PlaceText.text = "3rd Place";
- 		}
-
- 		
- 		if (Finished == false){
+ 		float PositionNPC = Opponent1.transform.position.x;
+ 		float PositionNPC2 = Opponent2.transform.position.x;
+		
+		if (Finished == false){
         	Vector3 movement = new Vector3(-3f, 
         				movementY * 2.5f, movementX * 2.5f);
         	rb.AddForce(movement * speed);
-    	}
+    
 
-    	else if (Finished == true && PlaceText.text == "1st"){
+ 		if (PositionNPC >= PositionPlayer.x && PositionNPC2 >= PositionPlayer.x
+ 		&& Opponent1Lap <= lapNum && Opponent2Lap <= lapNum){
+ 			PlaceText.text = "1st Place";
+ 			Place = 1;
+ 		}
+ 		else if ((PositionNPC <= PositionPlayer.x && PositionNPC2 >= PositionPlayer.x
+ 			&& Opponent1Lap >= lapNum && Opponent2Lap <= lapNum)) {
+ 			PlaceText.text = "2nd Place";
+ 			Place = 2;
+ 		}
+ 		else if ((PositionNPC >= PositionPlayer.x && PositionNPC2 <= PositionPlayer.x
+ 			&& Opponent1Lap <= lapNum && Opponent2Lap >= lapNum)) {
+ 			PlaceText.text = "2nd Place";
+ 			Place = 2;
+ 		}
+ 		else {
+ 			PlaceText.text = "3rd Place";
+ 			Place = 3;
+ 		}
+
+ 		}
+ 		
+    	else if (doneForReal == true){
+    		WinMenu.SetActive(true);
+    		PlaceText.text = "You win!";
+    	}
+    	else if (Finished == true && Place == 1){
 			WinMenu.SetActive(true);
     		PlaceText.text = "You win!";
+    		doneForReal = true;
     	}
     	else {
 			LoseMenu.SetActive(true);
