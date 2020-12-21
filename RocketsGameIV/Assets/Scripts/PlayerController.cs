@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
 	private bool doneForReal = false;
 	private int Place = 0;
-
+	public ParticleSystem particles;
 
 
 
@@ -51,7 +51,6 @@ public class PlayerController : MonoBehaviour
 		boostSound = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
         count = 0;
-
 		WinMenu.SetActive(false);
 		LoseMenu.SetActive(false);
     }
@@ -146,6 +145,7 @@ public class PlayerController : MonoBehaviour
 	        {
 			   boostSound.Play(0);
 	           isDash = true;
+	           particles.Play();
 	           dashNumber++;
 	        }
 	        else if (other.CompareTag("Obstacle"))
@@ -179,6 +179,7 @@ public class PlayerController : MonoBehaviour
 	IEnumerator DashDuration(){
 		yield return new WaitForSeconds(coolDownTime);
 		isDash = false;
+		particles.Stop();
 		boosted = false;
 	}
 

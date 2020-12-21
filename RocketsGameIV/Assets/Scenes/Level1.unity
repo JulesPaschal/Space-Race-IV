@@ -12087,6 +12087,12 @@ Transform:
   m_Father: {fileID: 1608148727}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!198 &2137637578 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2169100703165150815, guid: 94808f02a4f428d4a82a80c37fd11da8,
+    type: 3}
+  m_PrefabInstance: {fileID: 3508749425572552435}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &213564516886587354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12378,6 +12384,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2169100703165150815, guid: 94808f02a4f428d4a82a80c37fd11da8,
+        type: 3}
+      propertyPath: stopAction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2169100703165150815, guid: 94808f02a4f428d4a82a80c37fd11da8,
+        type: 3}
+      propertyPath: autoRandomSeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2169100703165150815, guid: 94808f02a4f428d4a82a80c37fd11da8,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145511566113251622, guid: 94808f02a4f428d4a82a80c37fd11da8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3508749426266524368, guid: 94808f02a4f428d4a82a80c37fd11da8,
         type: 3}
       propertyPath: PlaceText
@@ -12423,6 +12449,11 @@ PrefabInstance:
       propertyPath: CourseSize
       value: 5000
       objectReference: {fileID: 0}
+    - target: {fileID: 3508749426266524368, guid: 94808f02a4f428d4a82a80c37fd11da8,
+        type: 3}
+      propertyPath: particles
+      value: 
+      objectReference: {fileID: 2137637578}
     - target: {fileID: 3508749426266524370, guid: 94808f02a4f428d4a82a80c37fd11da8,
         type: 3}
       propertyPath: m_Name
