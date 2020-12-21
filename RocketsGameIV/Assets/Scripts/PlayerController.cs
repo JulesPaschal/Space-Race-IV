@@ -25,7 +25,9 @@ public class PlayerController : MonoBehaviour
 	private bool boosted;
 
 	private int dashNumber = 0;
+	int Place = 0;
 	bool Finished = false;
+	bool Final = false;
 	private bool newLapVar = false;
 	private int lapNum = 1;
 
@@ -33,6 +35,7 @@ public class PlayerController : MonoBehaviour
 	public TextMeshProUGUI LapText;
     public GameObject Opponent1;
     public GameObject Opponent2;
+
 
     void Start()
 
@@ -98,6 +101,10 @@ public class PlayerController : MonoBehaviour
     	}
 
     	else if (Finished == true && PlaceText.text == "1st"){
+    		Place = 1;
+    		PlaceText.text = "You win!";
+    	}
+    	else if (Place == 1){
     		PlaceText.text = "You win!";
     	}
     	else {
