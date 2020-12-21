@@ -7,7 +7,6 @@ TagManager:
   - Booster
   - Finish Line
   - Obstacle
-  - BigObstacle
   layers:
   - Default
   - TransparentFX
