@@ -60,17 +60,17 @@ public class GameHandler : MonoBehaviour
 		SceneManager.LoadScene("LoreNew");
 	}
 
-	//public void empty01()
-	//{
-	//	SceneManager.LoadScene("null");
-	//}
+    public void CourseSelect()
+    {
+        SceneManager.LoadScene("CourseSelect");
+    }
 
-	//public void empty02()
-	//{
-	//	SceneManager.LoadScene("null");
-	//}
+    //public void empty02()
+    //{
+    //	SceneManager.LoadScene("null");
+    //}
 
-	public void Quit(){
+    public void Quit(){
 		Application.Quit();
 	}
 
