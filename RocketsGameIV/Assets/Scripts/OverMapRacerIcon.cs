@@ -37,10 +37,10 @@ public class OverMapRacerIcon : MonoBehaviour
 		else {
 			racerLap = racer.gameObject.GetComponent<NPC2Script>().lap;
 			iconTextB.text = "Lap #" + racerLap;
-		}
 
-
+			if (racer.gameObject.GetComponent<NPC2Script>().nextLoc.name == "StartingLine"){
+				racerIcon.SetActive(false);}
+			else {racerIcon.SetActive(true);}
+			}
 	}
-
-
 }

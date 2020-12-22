@@ -21,8 +21,8 @@ public class NPC2Script : MonoBehaviour
     public Transform Waypoint13;
     public Transform Finishline;
   
-    private Transform currentLoc;
-    private Transform nextLoc;
+    public Transform currentLoc;
+    public Transform nextLoc;
     private Transform[] wayArray;
 
     public float moveSpeed = 2f;
