@@ -68,7 +68,9 @@ public class PlayerController : MonoBehaviour
     {
 		Opponent1Lap = Opponent1.GetComponent<NPC2Script>().lap;
 		//Debug.Log("THE OPPONENT IS ON LAP #" + Opponent1Lap);
-		//Opponent2Lap = Opponent2.GetComponent<NPC2Script>().lap;
+		if (CourseSize != 5000){
+			Opponent2Lap = Opponent2.GetComponent<NPC2Script>().lap;
+		}
 
     	Vector3 PositionPlayer = this.transform.position;
 
@@ -101,22 +103,23 @@ public class PlayerController : MonoBehaviour
         	rb.AddForce(movement * speed);
     
 
- 		if (PositionNPC >= PositionPlayer.x && PositionNPC2 >= PositionPlayer.x
- 		&& Opponent1Lap <= lapNum && Opponent2Lap <= lapNum){
+ 		if ((PositionNPC >= PositionPlayer.x) && (PositionNPC2 >= PositionPlayer.x)
+ 		&& (Opponent1Lap <= lapNum) && (Opponent2Lap <= lapNum)){
  			PlaceText.text = "1st Place";
  			Place = 1;
  		}
- 		else if ((PositionNPC <= PositionPlayer.x && PositionNPC2 >= PositionPlayer.x
- 			&& Opponent1Lap >= lapNum && Opponent2Lap <= lapNum)) {
+ 		else if ((PositionNPC <= PositionPlayer.x) && (PositionNPC2 >= PositionPlayer.x)
+ 			&& (Opponent1Lap >= lapNum) && (Opponent2Lap <= lapNum)) {
  			PlaceText.text = "2nd Place";
  			Place = 2;
  		}
- 		else if ((PositionNPC >= PositionPlayer.x && PositionNPC2 <= PositionPlayer.x
- 			&& Opponent1Lap <= lapNum && Opponent2Lap >= lapNum)) {
+ 		else if ((PositionNPC >= PositionPlayer.x) && (PositionNPC2 <= PositionPlayer.x)
+ 			&& (Opponent1Lap <= lapNum) && (Opponent2Lap >= lapNum)) {
  			PlaceText.text = "2nd Place";
  			Place = 2;
  		}
- 		else {
+ 		else if ((PositionNPC <= PositionPlayer.x) && (PositionNPC2 <= PositionPlayer.x)
+ 			&& (Opponent1Lap >= lapNum) && (Opponent2Lap >= lapNum)) {
  			PlaceText.text = "3rd Place";
  			Place = 3;
  		}
