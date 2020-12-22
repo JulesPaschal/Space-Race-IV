@@ -143,6 +143,8 @@ public class PlayerController : MonoBehaviour
 	    {
 	        if (other.CompareTag("Booster"))
 	        {
+			Renderer boosterRend = other.gameObject.GetComponentInChildren<Renderer>();
+			StartCoroutine(BoosterFlash(boosterRend));
 			   boostSound.Play(0);
 	           isDash = true;
 	           particles.Play();
@@ -183,5 +185,11 @@ public class PlayerController : MonoBehaviour
 		boosted = false;
 	}
 
+	IEnumerator BoosterFlash(Renderer boosterRend){
+		boosterRend.material.color = Color.red;
+		Debug.Log("I made it red!");
+		yield return new WaitForSeconds(0.2f);
+		boosterRend.material.color = Color.white;
+	}
 
 }

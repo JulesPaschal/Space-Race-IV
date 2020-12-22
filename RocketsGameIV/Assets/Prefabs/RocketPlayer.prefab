@@ -4836,12 +4836,16 @@ MonoBehaviour:
   speed: 0
   isDash: 0
   coolDownTime: 3
+  lapNum: 1
   PlaceText: {fileID: 0}
   LapText: {fileID: 0}
+  WinMenu: {fileID: 0}
+  LoseMenu: {fileID: 0}
   Opponent1: {fileID: 0}
   Opponent2: {fileID: 0}
-  Opponent1Lap: 0
-  boostSound: {fileID: 0}
+  CourseSize: 0
+  boostSound: {fileID: 6610967135696327695}
+  particles: {fileID: 2169100703165150815}
 --- !u!114 &3508749426266524369
 MonoBehaviour:
   m_ObjectHideFlags: 0

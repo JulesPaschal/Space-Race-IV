@@ -32,7 +32,8 @@ public class OverMapRacerIcon : MonoBehaviour
 		if (racer.gameObject.tag == "Player"){
 			racerPlace = racer.gameObject.GetComponent<PlayerController>().PlaceText.text;
 			racerLap = racer.gameObject.GetComponent<PlayerController>().lapNum;
-			iconTextB.text = "PLAYER: \n Lap #" + racerLap + "\n" + racerPlace;
+			//iconTextB.text = "PLAYER: \n Lap #" + racerLap + "\n" + racerPlace;
+			iconTextB.text = "Lap #" + racerLap;
 		}
 		else {
 			racerLap = racer.gameObject.GetComponent<NPC2Script>().lap;
