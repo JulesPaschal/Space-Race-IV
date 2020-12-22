@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
         count = 0;
 		WinMenu.SetActive(false);
 		LoseMenu.SetActive(false);
+		particles.Stop();
     }
 
     void OnMove(InputValue movementValue)
