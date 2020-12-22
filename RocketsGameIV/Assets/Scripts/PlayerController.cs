@@ -66,10 +66,24 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-		Opponent1Lap = Opponent1.GetComponent<NPC2Script>().lap;
-		//Debug.Log("THE OPPONENT IS ON LAP #" + Opponent1Lap);
+		if (Opponent1.GetComponent<NPC2Script>() != null){
+			Opponent1Lap = Opponent1.GetComponent<NPC2Script>().lap;
+		}
+		else if (Opponent1.GetComponent<NPC3Script>() != null){
+			Opponent1Lap = Opponent1.GetComponent<NPC3Script>().lap;
+		}
+
+
+			//Debug.Log("THE OPPONENT IS ON LAP #" + Opponent1Lap);
 		if (CourseSize != 5000){
-			Opponent2Lap = Opponent2.GetComponent<NPC2Script>().lap;
+
+			if (Opponent2.GetComponent<NPC2Script>() != null){
+				Opponent2Lap = Opponent2.GetComponent<NPC2Script>().lap;
+			}
+			else if (Opponent2.GetComponent<NPC3Script>() != null){
+				Opponent2Lap = Opponent2.GetComponent<NPC3Script>().lap;
+			}
+
 		}
 
     	Vector3 PositionPlayer = this.transform.position;
@@ -146,8 +160,7 @@ public class PlayerController : MonoBehaviour
 	    {
 	        if (other.CompareTag("Booster"))
 	        {
-			Renderer boosterRend = other.gameObject.GetComponentInChildren<Renderer>();
-			StartCoroutine(BoosterFlash(boosterRend));
+			   other.gameObject.GetComponent<RingColor>().PlayerBoost();
 			   boostSound.Play(0);
 	           isDash = true;
 	           particles.Play();

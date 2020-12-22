@@ -36,12 +36,30 @@ public class OverMapRacerIcon : MonoBehaviour
 			iconTextB.text = "Lap #" + racerLap;
 		}
 		else {
-			racerLap = racer.gameObject.GetComponent<NPC2Script>().lap;
+
+			if (racer.gameObject.GetComponent<NPC2Script>() != null){
+				racerLap = racer.gameObject.GetComponent<NPC2Script>().lap;
+			}
+			else if (racer.gameObject.GetComponent<NPC3Script>() != null){
+				racerLap = racer.gameObject.GetComponent<NPC3Script>().lap;
+			}
+
+
+			//racerLap = racer.gameObject.GetComponent<NPC2Script>().lap;
 			iconTextB.text = "Lap #" + racerLap;
 
-			if (racer.gameObject.GetComponent<NPC2Script>().nextLoc.name == "StartingLine"){
-				racerIcon.SetActive(false);}
-			else {racerIcon.SetActive(true);}
+			if (racer.gameObject.GetComponent<NPC2Script>() != null){
+				if (racer.gameObject.GetComponent<NPC2Script>().nextLoc.name == "StartingLine"){
+					racerIcon.SetActive(false);}
+				else {racerIcon.SetActive(true);}
 			}
+			else if (racer.gameObject.GetComponent<NPC3Script>() != null){
+				if (racer.gameObject.GetComponent<NPC3Script>().nextLoc.name == "StartingLine"){
+					racerIcon.SetActive(false);}
+				else {racerIcon.SetActive(true);}
+			}
+
+
+		}
 	}
 }

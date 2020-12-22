@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NPC2Script : MonoBehaviour
 {
-    
+
     public Transform StartingLine;
     public Transform Waypoint1;
     public Transform Waypoint2;
