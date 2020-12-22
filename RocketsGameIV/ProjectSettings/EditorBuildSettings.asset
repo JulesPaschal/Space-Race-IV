@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Options.unity
     guid: 716b1a550ccc242e58b326eeee856499
+  - enabled: 1
+    path: Assets/Scenes/CourseSelect.unity
+    guid: 16e95bfce67554bd1b8fb057ee5f0316
   m_configObjects: {}
