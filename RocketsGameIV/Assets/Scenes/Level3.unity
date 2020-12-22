@@ -4913,6 +4913,11 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1426746775161291396, guid: bdad38fc8d61614459f8a1bed97fdab6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b52f4ef5a568a24b92fe95e721192a9, type: 2}
     m_RemovedComponents:
     - {fileID: 291967618115190350, guid: bdad38fc8d61614459f8a1bed97fdab6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bdad38fc8d61614459f8a1bed97fdab6, type: 3}
