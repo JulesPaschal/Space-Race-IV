@@ -1556,6 +1556,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 8235834678678363445, guid: 4d5569a0c7381ff43b1a38667bbe106b,
+        type: 3}
+      propertyPath: orthographic size
+      value: 5024.837
+      objectReference: {fileID: 0}
     - target: {fileID: 8235834678678363447, guid: 4d5569a0c7381ff43b1a38667bbe106b,
         type: 3}
       propertyPath: m_Name
@@ -1566,6 +1571,11 @@ PrefabInstance:
       propertyPath: racer
       value: 
       objectReference: {fileID: 1086083886}
+    - target: {fileID: 8235834679350096286, guid: 4d5569a0c7381ff43b1a38667bbe106b,
+        type: 3}
+      propertyPath: isRacing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8235834679370070755, guid: 4d5569a0c7381ff43b1a38667bbe106b,
         type: 3}
       propertyPath: racer
@@ -1997,40 +2007,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 378905030}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &378905032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378905031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8607b252ff13a594597c852fd2a20603, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartingLine: {fileID: 123320598}
-  Waypoint1: {fileID: 843860551}
-  Waypoint2: {fileID: 1946426181}
-  Waypoint3: {fileID: 334373705}
-  Waypoint4: {fileID: 1394485738}
-  Waypoint5: {fileID: 1803384395}
-  Waypoint6: {fileID: 2070110133}
-  Waypoint7: {fileID: 1271519367}
-  Waypoint8: {fileID: 948741983}
-  Waypoint9: {fileID: 1350720460}
-  Waypoint10: {fileID: 1415124738}
-  Waypoint11: {fileID: 731811118}
-  Waypoint12: {fileID: 676847019}
-  Waypoint13: {fileID: 1058867719}
-  Finishline: {fileID: 1083355229}
-  currentLoc: {fileID: 0}
-  nextLoc: {fileID: 0}
-  moveSpeed: 1.05
-  rotationSpeed: 5
-  offset: {x: 0, y: 0, z: 0}
-  rb: {fileID: 0}
-  lap: 1
 --- !u!114 &378905033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2043,9 +2019,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a76a04267efb7d4895fbcc92f62e717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WayPoints: []
-  StartingLine: {fileID: 0}
-  Finishline: {fileID: 0}
+  WayPoints:
+  - {fileID: 843860551}
+  - {fileID: 1946426181}
+  - {fileID: 162658751}
+  - {fileID: 334373705}
+  - {fileID: 583811277}
+  - {fileID: 1394485738}
+  - {fileID: 1803384395}
+  - {fileID: 2070110133}
+  - {fileID: 55314097}
+  - {fileID: 1271519367}
+  - {fileID: 783149534}
+  - {fileID: 948741983}
+  - {fileID: 1687272351}
+  - {fileID: 656565951}
+  - {fileID: 264432779}
+  - {fileID: 1350720460}
+  - {fileID: 86491592}
+  - {fileID: 1415124738}
+  - {fileID: 1721909800}
+  - {fileID: 731811118}
+  - {fileID: 2004106914}
+  - {fileID: 676847019}
+  - {fileID: 2127261030}
+  - {fileID: 1058867719}
+  StartingLine: {fileID: 123320598}
+  Finishline: {fileID: 1083355229}
   currentLoc: {fileID: 0}
   nextLoc: {fileID: 0}
   moveSpeed: 2
@@ -3771,7 +3771,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: aad5d5c80f782473c90207150e2c0814,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aad5d5c80f782473c90207150e2c0814,
         type: 3}
@@ -4899,7 +4899,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1086083879}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1086083881
+--- !u!114 &1086083882
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4908,27 +4908,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 1086083880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8607b252ff13a594597c852fd2a20603, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a76a04267efb7d4895fbcc92f62e717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WayPoints:
+  - {fileID: 843860551}
+  - {fileID: 1946426181}
+  - {fileID: 162658751}
+  - {fileID: 334373705}
+  - {fileID: 583811277}
+  - {fileID: 1394485738}
+  - {fileID: 1803384395}
+  - {fileID: 2070110133}
+  - {fileID: 55314097}
+  - {fileID: 1271519367}
+  - {fileID: 783149534}
+  - {fileID: 948741983}
+  - {fileID: 1687272351}
+  - {fileID: 656565951}
+  - {fileID: 264432779}
+  - {fileID: 1350720460}
+  - {fileID: 86491592}
+  - {fileID: 1415124738}
+  - {fileID: 1721909800}
+  - {fileID: 731811118}
+  - {fileID: 2004106914}
+  - {fileID: 676847019}
+  - {fileID: 2127261030}
+  - {fileID: 1058867719}
   StartingLine: {fileID: 123320598}
-  Waypoint1: {fileID: 843860551}
-  Waypoint2: {fileID: 162658751}
-  Waypoint3: {fileID: 334373705}
-  Waypoint4: {fileID: 1394485738}
-  Waypoint5: {fileID: 2070110133}
-  Waypoint6: {fileID: 1271519367}
-  Waypoint7: {fileID: 948741983}
-  Waypoint8: {fileID: 656565951}
-  Waypoint9: {fileID: 1350720460}
-  Waypoint10: {fileID: 1415124738}
-  Waypoint11: {fileID: 731811118}
-  Waypoint12: {fileID: 676847019}
-  Waypoint13: {fileID: 1058867719}
   Finishline: {fileID: 1083355229}
   currentLoc: {fileID: 0}
   nextLoc: {fileID: 0}
-  moveSpeed: 1.05
+  moveSpeed: 2
   rotationSpeed: 5
   offset: {x: 0, y: 0, z: 0}
   rb: {fileID: 0}
@@ -6207,8 +6219,8 @@ Transform:
   m_LocalPosition: {x: -144.4275, y: -12, z: -95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1946426181}
   - {fileID: 843860551}
+  - {fileID: 1946426181}
   - {fileID: 162658751}
   - {fileID: 334373705}
   - {fileID: 583811277}
@@ -7979,7 +7991,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: aad5d5c80f782473c90207150e2c0814,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aad5d5c80f782473c90207150e2c0814,
         type: 3}
@@ -8574,7 +8586,7 @@ PrefabInstance:
     - target: {fileID: 3508749426266524368, guid: 94808f02a4f428d4a82a80c37fd11da8,
         type: 3}
       propertyPath: CourseSize
-      value: 5000
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3508749426266524368, guid: 94808f02a4f428d4a82a80c37fd11da8,
         type: 3}
