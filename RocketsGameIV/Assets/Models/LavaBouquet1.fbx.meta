@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: LavaRockSkin1
-    second: {fileID: 2800000, guid: 7789877b9f86a4e65b47d22de3ea0ca4, type: 3}
+    second: {fileID: 2800000, guid: b497c66c807732c41bc118c9314bd680, type: 3}
   materials:
     materialImportMode: 1
     materialName: 0
